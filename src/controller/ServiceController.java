@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import dao.ServiceDAO;
 import defaultOperation.StandartFrameOperation;
 import entity.Service;
+import forms.PaymentFrame;
 import forms.ServiceFrame;
 import tableModal.ServiceTableModal;
 
@@ -81,6 +82,14 @@ public class ServiceController extends StandartFrameOperation {
 		switchVisible();
 		ApplicationController.mainController.switchVisible();	
 		
+	}
+	@Override
+	public void switchVisible() {
+		super.switchVisible();
+		refrechView();
+	}
+	public void refrechView() {
+		((ServiceFrame) getFrame()).refreshView();
 	}
 
 }

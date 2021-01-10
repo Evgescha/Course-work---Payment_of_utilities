@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import dao.TenantDAO;
 import defaultOperation.StandartFrameOperation;
 import entity.Tenant;
+import forms.PaymentFrame;
 import forms.TenantFrame;
 import tableModal.TenantTableModal;
 
@@ -82,5 +83,12 @@ public class TenantController extends StandartFrameOperation {
 		ApplicationController.mainController.switchVisible();	
 		
 	}
-
+	@Override
+	public void switchVisible() {
+		super.switchVisible();
+		refrechView();
+	}
+	public void refrechView() {
+		((TenantFrame) getFrame()).refreshView();
+	}
 }
