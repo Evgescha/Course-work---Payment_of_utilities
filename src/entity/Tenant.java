@@ -1,12 +1,31 @@
 package entity;
 
-public class Tenant extends AbstractEntity{
+/**
+ * Сущность квартиросъемщика
+ * 
+ * @author ya
+ *
+ */
+public class Tenant extends AbstractEntity {
+	/**
+	 * ФИО квартиросъемщика
+	 */
 	private String fio;
 
+	/**
+	 * Получение поля
+	 * 
+	 * @return ФИО
+	 */
 	public String getFio() {
 		return fio;
 	}
 
+	/**
+	 * Установка поля
+	 * 
+	 * @param fio
+	 */
 	public void setFio(String fio) {
 		this.fio = fio;
 	}
@@ -16,13 +35,21 @@ public class Tenant extends AbstractEntity{
 		return fio;
 	}
 
+	/**
+	 * Конструктор с параметром
+	 * 
+	 * @param fio
+	 */
 	public Tenant(String fio) {
 		super();
 		this.fio = fio;
 	}
 
+	/**
+	 * Конструктор без параметров
+	 */
 	public Tenant() {
 		super();
 	}
-	
+
 }

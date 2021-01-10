@@ -9,8 +9,15 @@ import javax.swing.JFrame;
 import controller.ApplicationController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
+/**
+ * Vty. ds,jhf ajhv
+ * @author ya
+ *
+ */
 public class MainFrame extends JFrame{
+	/**
+	 * Конструктор
+	 */
 	public MainFrame() {
 		initialize();
 	}
@@ -51,14 +58,21 @@ public class MainFrame extends JFrame{
 	btnNewButton_1_1.setBounds(10, 74, 308, 23);
 	getContentPane().add(btnNewButton_1_1);
 	}
+	/**
+	 * Открыто форму учета
+	 */
 	private void btnShowPaymentAction() {
 		ApplicationController.mainController.btnPaymentAction();
 		
-	}
+	}	/**
+	 * Открыто форму квартирантов
+	 */
 	private void btnShowTenaneAction() {
 		ApplicationController.mainController.btnTenantAction();
 		
-	}
+	}	/**
+	 * Открыто форму услуг
+	 */
 	private void btnShowServiceAction() {
 		 ApplicationController.mainController.btnServiceAction();
 		

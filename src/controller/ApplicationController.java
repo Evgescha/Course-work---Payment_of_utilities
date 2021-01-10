@@ -4,7 +4,11 @@ import forms.MainFrame;
 import forms.PaymentFrame;
 import forms.ServiceFrame;
 import forms.TenantFrame;
-
+/**
+ * Общий контроллер приложения
+ * @author yauhe
+ *
+ */
 public class ApplicationController {
 
 	public static MainController mainController = new MainController(new MainFrame());

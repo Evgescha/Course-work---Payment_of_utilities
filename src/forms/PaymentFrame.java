@@ -30,6 +30,11 @@ import controller.ApplicationController;
 import entity.Payment;
 import entity.Service;
 import entity.Tenant;
+/**
+ * Форма отображения учета
+ * @author ya
+ *
+ */
 public class PaymentFrame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
@@ -38,7 +43,9 @@ public class PaymentFrame extends JFrame {
 	private JComboBox<Service> comboBoxService;
 	private JDateChooser dateChooser;
 	private JTextField textField_2;
-
+	/**
+	 * конструктор
+	 */
 	public PaymentFrame() {
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -149,7 +156,9 @@ public class PaymentFrame extends JFrame {
 		getContentPane().add(new JScrollPane(table), BorderLayout.CENTER);
 		 
 	}
-
+	/**
+	 * Удаление записи
+	 */
 	private void actionDeleteButton() {
 		if (table.getRowCount() > 0 && table.getSelectedRowCount() > 0) {
 			int row = table.getSelectedRow();
@@ -157,7 +166,9 @@ public class PaymentFrame extends JFrame {
 			ApplicationController.paymentController.actionDeleteButton(Long.parseLong(id));
 		}
 	}
-
+	/**
+	 * Заполнение полей при нажатии на запись
+	 */
 	private void actionTableMouseClicked() {
 		if (table.getRowCount() > 0)
 			try {
@@ -175,7 +186,9 @@ public class PaymentFrame extends JFrame {
 			} catch (Exception e) {
 			}
 	}
-
+	/**
+	 * обновление записи
+	 */
 	private void actionUpdateButton() {
 		int column = 0;
 		int row = table.getSelectedRow();
@@ -191,7 +204,9 @@ public class PaymentFrame extends JFrame {
 				);
 		}
 	}
-
+	/**
+	 * создание записи
+	 */
 	private void actionCreateButton() {
 		if(allFieldIsRight()) 
 		ApplicationController.paymentController.actionCreateButton(
@@ -202,12 +217,16 @@ public class PaymentFrame extends JFrame {
 				Integer.parseInt(textField_2.getText())
 				);
 	}
-
+	/**
+	 * поиск записей
+	 */
 	private void actionSearchButton() {
 		ApplicationController.paymentController.actionSearchButton(textField.getText().trim(), table);
 		refreshComboBoxes();
 	}
-
+	/**
+	 * обновление данных таблицы
+	 */
 	public void refreshView() {
 		
 		ApplicationController.paymentController.actionSearchButton("", table);
@@ -223,10 +242,17 @@ public class PaymentFrame extends JFrame {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * вернутся на предыдущую форму
+	 */
 	public void back() {
 		ApplicationController.paymentController.back();
 	}
-	private boolean isHasNumbers() {
+	/**
+	 * проверка полей на содержание цифр
+	 * @return да, если поле содержит цифры
+	 */
+private boolean isHasNumbers() {
 		Pattern p = Pattern.compile("([0-9])");
 		Matcher m = p.matcher(textField.getText());
 
@@ -236,6 +262,10 @@ public class PaymentFrame extends JFrame {
 		}
 		return false;
 	}
+/**
+ * проверка полей на пустоту
+ * @return да, если поле пустое
+ */
 	private boolean isEmpty() {
 		boolean flag = false;
 		if (textField_1.getText().length()<=0) flag=true;
@@ -244,6 +274,11 @@ public class PaymentFrame extends JFrame {
 		if(flag) JOptionPane.showMessageDialog(this, "Проверьте корректное заполнение всех полей.");
 		return flag;
 	}
+
+	/**
+	 * общая проверка заполнения полей
+	 * @return да, если поле не пустое и в нем нет цифр
+	 */
 	private boolean allFieldIsRight() {
 		return !isEmpty() && !isHasNumbers();
 	}

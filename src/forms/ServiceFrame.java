@@ -22,12 +22,18 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import controller.ApplicationController;
-
+/**
+ * Форма отображения услуг
+ * @author ya
+ *
+ */
 public class ServiceFrame extends JFrame {
 	private JTable table;
 	private JTextField textField;
 	private JTextField textField_4;
-
+	/**
+	 * конструктор
+	 */
 	public ServiceFrame() {
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -139,7 +145,9 @@ public class ServiceFrame extends JFrame {
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 
 	}
-
+	/**
+	 * Удаление записи
+	 */
 	private void actionDeleteButton() {
 		if (table.getRowCount() > 0 && table.getSelectedRowCount() > 0) {
 			int row = table.getSelectedRow();
@@ -147,7 +155,9 @@ public class ServiceFrame extends JFrame {
 			ApplicationController.serviceController.actionDeleteButton(id);
 		}
 	}
-
+	/**
+	 * Заполнение полей при нажатии на запись
+	 */
 	private void actionTableMouseClicked() {
 		if (table.getRowCount() > 0)
 			try {
@@ -157,7 +167,9 @@ public class ServiceFrame extends JFrame {
 			}
 
 	}
-
+	/**
+	 * обновление записи
+	 */
 	private void actionUpdateButton() {
 		if(allFieldIsRight()) {
 		
@@ -167,24 +179,36 @@ public class ServiceFrame extends JFrame {
 			refreshView();
 		}
 	}
-
+	/**
+	 * создание записи
+	 */
 	private void actionCreateButton() {
 		if(allFieldIsRight())
 		ApplicationController.serviceController.actionCreateButton(textField.getText());
 		
 	}
-
+	/**
+	 * поиск записей
+	 */
 	private void actionSearchButton() {		
 		ApplicationController.serviceController.actionSearchButton(textField_4.getText().trim(), table);
 	}
-
+	/**
+	 * обновление данных таблицы
+	 */
 	public void refreshView() {
 		ApplicationController.serviceController.actionSearchButton("", table);
 	}
+	/**
+	 * вернутся на предыдущую форму
+	 */
 	public void back() {
 		ApplicationController.serviceController.back();;
 	}
-	
+	/**
+	 * проверка полей на содержание цифр
+	 * @return да, если поле содержит цифры
+	 */
 	private boolean isHasNumbers() {
 		Pattern p = Pattern.compile("([0-9])");
 		Matcher m = p.matcher(textField.getText());
@@ -195,10 +219,18 @@ public class ServiceFrame extends JFrame {
 		}
 		return false;
 	}
+	/**
+	 * проверка полей на пустоту
+	 * @return да, если поле пустое
+	 */
 	private boolean isEmpty() {
 		
 		return textField.getText().length()<=0;
 	}
+	/**
+	 * общая проверка заполнения полей
+	 * @return да, если поле не пустое и в нем нет цифр
+	 */
 	private boolean allFieldIsRight() {
 		return !isEmpty() && !isHasNumbers();
 	}
