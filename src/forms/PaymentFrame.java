@@ -30,11 +30,6 @@ import controller.ApplicationController;
 import entity.Payment;
 import entity.Service;
 import entity.Tenant;
-/**
- * форма отображения продуктов
- * @author admin
- *
- */
 public class PaymentFrame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
@@ -52,7 +47,7 @@ public class PaymentFrame extends JFrame {
 			}
 		});
 		setTitle("Учет оплаты коммунальных услуг");
-		setBounds(100, 100, 823, 428);
+		setBounds(100, 100, 823, 490);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -134,6 +129,15 @@ public class PaymentFrame extends JFrame {
 		panel_1.add(btnNewButton);
 		panel_1.add(btnNewButton_2);
 		panel_1.add(btnNewButton_3);
+		
+		JButton btnNewButton_3_1 = new JButton("В файл");
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				ApplicationController.mainController.saveToFile(table);
+			}
+		});
+		panel_1.add(btnNewButton_3_1);
 
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {

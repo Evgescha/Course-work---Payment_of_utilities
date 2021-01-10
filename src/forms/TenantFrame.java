@@ -81,10 +81,17 @@ public class TenantFrame extends JFrame {
 			}
 		});
 
-		JButton btnNewButton_3 = new JButton("УДалить");
+		JButton btnNewButton_3 = new JButton("Удалить");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actionDeleteButton();
+			}
+		});
+		
+		JButton btnNewButton_3_1 = new JButton("В файл");
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ApplicationController.mainController.saveToFile(table);
 			}
 		});
 
@@ -92,14 +99,16 @@ public class TenantFrame extends JFrame {
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(4)
-							.addComponent(lblNewLabel))
-						.addComponent(textField, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-						.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-						.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_panel_1.createSequentialGroup()
+								.addGap(4)
+								.addComponent(lblNewLabel))
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+							.addComponent(btnNewButton_3, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+							.addComponent(btnNewButton_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addComponent(btnNewButton_3_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		gl_panel_1.setVerticalGroup(
@@ -114,7 +123,9 @@ public class TenantFrame extends JFrame {
 					.addComponent(btnNewButton_2)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnNewButton_3)
-					.addGap(211))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnNewButton_3_1)
+					.addGap(182))
 		);
 		panel_1.setLayout(gl_panel_1);
 
@@ -126,7 +137,7 @@ public class TenantFrame extends JFrame {
 			}
 		});
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
-
+		
 	}
 
 	private void actionDeleteButton() {
