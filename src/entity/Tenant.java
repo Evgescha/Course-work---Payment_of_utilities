@@ -8,14 +8,14 @@ package entity;
  */
 public class Tenant extends AbstractEntity {
 	/**
-	 * ФИО квартиросъемщика
+	 * fio квартиросъемщика
 	 */
 	private String fio;
 
 	/**
 	 * Получение поля
 	 * 
-	 * @return ФИО
+	 * @return fio
 	 */
 	public String getFio() {
 		return fio;
